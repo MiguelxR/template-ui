@@ -79,7 +79,7 @@ vi.mock("../../../pages/Login/Login", () => ({
 }));
 
 // Importar el componente a testear DESPUÉS de todos los mocks
-import LoginContainer from "../../../pages/Login/LoginContainer";
+import LoginContainer from "../../../pages/Login/LoginContainer.page";
 
 describe("LoginContainer Unit Tests (Synchronous)", () => {
   beforeEach(() => {

@@ -4,8 +4,10 @@ import CoreLayout from "../../Layouts/CoreLayout";
 import RoutesWithNotFound from "../../helpers/RoutesWithNotFound";
 import { lazy } from "react";
 
-const DashboardContainer = lazy(() => import("./Dashboard/DashboardContainer"));
-const ProfileContainer = lazy(() => import("./Profile/ProfileContainer"));
+const DashboardContainer = lazy(
+  () => import("./Dashboard/DashboardContainer.page")
+);
+const ProfileContainer = lazy(() => import("./Profile/ProfileContainer.page"));
 
 const Private = () => {
   return (

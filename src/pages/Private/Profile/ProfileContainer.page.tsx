@@ -1,6 +1,6 @@
 import { useState, Suspense, use } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import Profile from "./Profile";
+import Profile from "./Profile.page";
 import { getCachedUser } from "../../../services/auth.service";
 
 const ProfileContainer = () => {

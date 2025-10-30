@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import CoreLayout from "../../Layouts/CoreLayout";
-import Home from "../../pages/Home/Home";
+import Home from "../../pages/Home/Home.page";
 
 describe("CoreLayout Component", () => {
   it("renders without crashing", () => {

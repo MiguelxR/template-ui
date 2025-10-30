@@ -3,20 +3,24 @@ import axiosInstance from "../interceptors/axios.instance";
 
 const userValue = "user";
 
-export const getMorty = (): Promise<Character> => {
-  return axiosInstance.get<Character>("/character/2").then((res) => res.data);
+export const getMorty = (signal?: AbortSignal): Promise<Character> => {
+  return axiosInstance
+    .get<Character>("/character/2", { signal })
+    .then((res) => res.data);
 };
 
-// Nueva función que retorna una Promise
-export const getUserData = (): Promise<Character> => {
-  return axiosInstance.get<Character>("/character/2").then((res) => res.data);
+// Nueva función que retorna una Promise y acepta signal
+export const getUserData = (signal?: AbortSignal): Promise<Character> => {
+  return axiosInstance
+    .get<Character>("/character/2", { signal })
+    .then((res) => res.data);
 };
 
 const promiseCache = new Map<string, Promise<Character>>();
 
-export const getCachedUser = (): Promise<Character> => {
+export const getCachedUser = (signal?: AbortSignal): Promise<Character> => {
   if (!promiseCache.has(userValue)) {
-    promiseCache.set(userValue, getUserData());
+    promiseCache.set(userValue, getUserData(signal));
   }
   return promiseCache.get(userValue)!; // El ! indica que sabemos que existe
 };

@@ -11,9 +11,9 @@ import { Roles } from "./models/roles";
 import AuthGuard from "./guards/Auth.guard";
 
 const DashboardContainer = lazy(
-  () => import("./pages/Private/Dashboard/DashboardContainer")
+  () => import("./pages/Private/Dashboard/DashboardContainer.page")
 );
-const LoginContainer = lazy(() => import("./pages/Login/LoginContainer"));
+const LoginContainer = lazy(() => import("./pages/Login/LoginContainer.page"));
 const Private = lazy(() => import("./pages/Private/Private"));
 
 function App() {
