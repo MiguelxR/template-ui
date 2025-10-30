@@ -1,23 +1,15 @@
 import type { Character } from "../models/profile.model";
+import axiosInstance from "../interceptors/axios.instance";
 
 const userValue = "user";
 
-const baseUrl =
-  import.meta.env.VITE_API_BASE_URL || "https://rickandmortyapi.com/api";
-const charactersUrl = `${baseUrl}/character`;
-
 export const getMorty = (): Promise<Character> => {
-  return fetch(`${charactersUrl}/2`).then((res) => res.json());
+  return axiosInstance.get<Character>("/character/2").then((res) => res.data);
 };
 
 // Nueva función que retorna una Promise
 export const getUserData = (): Promise<Character> => {
-  return fetch(`${charactersUrl}/2`).then((res) => {
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-    return res.json();
-  });
+  return axiosInstance.get<Character>("/character/2").then((res) => res.data);
 };
 
 const promiseCache = new Map<string, Promise<Character>>();
